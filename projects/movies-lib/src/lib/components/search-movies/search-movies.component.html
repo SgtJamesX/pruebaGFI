@@ -1,0 +1,111 @@
+<p-toast></p-toast>
+<div class="ui-g backgroundSearch">
+    <div class="ui-g-3">
+        <label class="control-label enphasis" for="t">Title: </label>
+        <input type="text" id="t" [(ngModel)]="title" name="t" class="input-small">
+    </div>
+    <div class="ui-g-3">
+        <label class="control-label enphasis" for="y">Year: </label>
+        <input type="text" id="y" [(ngModel)]="year" name="y" class="input-small" style="width: 100px;">
+    </div>
+    <div class="ui-g-3">
+        <button id="search-by-title-button" type="button" class="btn-sm btn-primary btnSearch" (click)="searchMovie()"
+            [disabled]="title==='' || title===null"> <span><i class="fa fa-search"></i></span> Search</button>
+        <button id="search-by-title-reset" type="reset" class="btn-sm btnReset" (click)="resetForm()"><span><i class="fa fa-trash"></i></span>
+            Reset</button>
+    </div>
+    <div class="ui-g-3 flexEnd">
+        <span class="enphasis">User: </span>
+        <span class="enphasis2"> {{user.firstName}}</span>
+        <button id="search-by-title-reset" type="reset" class="btn-sm btnReset" (click)="logout()"><span><i class="fa fa-power-off"></i></span>
+            Logout</button>
+    </div>
+</div>
+
+<div class="ui-g">
+    <div class="ui-g-12" *ngIf="movies.length>0; else notSearched">
+        <h2>Movie Searched</h2>
+        <p-table [columns]="cols" [value]="movies">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns">
+                        {{col.header}}
+                    </th>
+                    <th>
+                        More Info
+                    </th>
+                    <th>
+                        Add to favourites
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr>
+                    <td *ngFor="let col of columns">
+                        {{rowData[col.field]}}
+                    </td>
+                    <td class="buttonsAllign">
+                        <button class="btnMargin btn btn-info btn-xs" (click)="detailMovie(rowData)">
+                            <span><i class="fa fa-search"></i></span></button>
+                    </td>
+                    <td class="buttonsAllign">
+                        <button class="btnMargin btn btn-info btn-xs" (click)="addFavourite(rowData)">
+                            <span><i class="fa fa-star"></i></span></button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+<div class="ui-g">
+    <div class="ui-g-12" *ngIf="favouritesMoviews.length>0; else notFavourites">
+        <h2>Favourite Movies</h2>
+        <p-table [columns]="cols" [value]="favouritesMoviews">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns">
+                        {{col.header}}
+                    </th>
+                    <th>
+                        More Info
+                    </th>
+                    <th>
+                        Remove from favourites
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr>
+                    <td *ngFor="let col of columns">
+                        {{rowData[col.field]}}
+                    </td>
+                    <td class="buttonsAllign">
+                        <button class="btnMargin btn btn-info btn-xs" (click)="detailMovie(rowData)">
+                            <span><i class="fa fa-search"></i></span></button>
+                    </td>
+                    <td class="buttonsAllign">
+                        <button class="btnMargin btn btn-danger btn-xs" (click)="removeFavourite(rowData)">
+                            <span><i class="fa fa-trash"></i></span></button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+
+<ng-template #notSearched>
+    <div class="ui-g-12">
+        <h2>Start Searching Movies!</h2>
+    </div>
+</ng-template>
+
+<ng-template #notFavourites>
+    <div class="ui-g-12">
+        <h2>You don't have any favourite movies yet!</h2>
+    </div>
+</ng-template>
+
+<p-dialog *ngIf="selectedMovie" header="{{selectedMovie.Title}}" [(visible)]="displayDetails" [modal]="true"
+    [responsive]="true" [width]="1200" [minWidth]="200" [minY]="70" [baseZIndex]="10000">
+    <mov-detail-movie [movie]="selectedMovie"></mov-detail-movie>
+</p-dialog>

@@ -1,0 +1,4 @@
+{
+    "ROUTE-MOVIES": "http://www.omdbapi.com/",
+    "ROUTE-KEY": "&apikey=f12ba140"
+}

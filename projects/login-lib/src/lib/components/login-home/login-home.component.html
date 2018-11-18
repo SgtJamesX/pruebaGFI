@@ -1,0 +1,34 @@
+<p-toast></p-toast>
+
+    <div class="ui-g-12 marginTop">
+        <h2>Login Movies App</h2>
+        <div class="ui-g">
+            <div class="ui-g-6 centeredLogin">
+                <div class="form-group">
+                    <label class="enphasis" for="username">Username </label>
+                    <input type="text" class="input-small" [(ngModel)]="user" />
+                    <div class="invalid-feedback">
+                        <div>Username is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="enphasis" for="password">Password </label>
+                    <input type="password" class="input-small" [(ngModel)]="password" />
+                    <div class="invalid-feedback">
+                        <div>Password is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btnSearch" (click)="login()" [disabled]="user==='' || user===null || password==='' || password===null">Login</button>
+                </div>
+            </div>
+        </div>
+        <div class="ui-g">
+            <div class="ui-g-6 centeredLogin">
+                <div class="alert alert-dark">
+                    <span class="enphasis">Username: </span> gfi <span class="enphasis">Password: </span> gfi
+                </div>
+            </div>
+        </div>
+
+    </div>

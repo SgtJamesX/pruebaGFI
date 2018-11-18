@@ -1,0 +1,115 @@
+/* You can add global styles to this file, and also import other style files */
+
+$font-stack:    Helvetica, sans-serif
+$primary-color: #454545
+$background-color: #202023
+$primary-color-modal-title: cadetblue
+$background-color-modal-title: #1F2021
+$primary-color-modal: powderblue
+$background-color-modal: #2E2F30
+$background-color-search: #0E0E0E
+
+body
+  font: 100% $font-stack
+  color: $primary-color
+  background-color: $background-color
+
+body .ui-dialog .ui-dialog-titlebar
+  border: 0
+  font-weight: 800
+  color: $primary-color-modal-title
+  background-color: $background-color-modal-title
+
+body .ui-dialog .ui-dialog-content
+  color: $primary-color-modal
+  background-color: $background-color-modal
+  border: 0
+
+body .ui-table .ui-table-thead > tr > th 
+  font-weight: 800
+  color: $primary-color-modal-title
+  background-color: $background-color-modal-title
+  border: 1px solid #555658
+
+body .ui-table .ui-table-tbody > tr > td
+  color: $primary-color-modal
+  background-color: $background-color-modal
+  border: 1px solid #555658
+
+h2
+  text-align: center
+  color: $primary-color-modal-title
+  font-weight: 800
+
+img 
+    width: 250px
+    height: 400px
+
+input
+    border-radius: 20px
+    outline: none
+    background-color: black
+    color: $primary-color-modal
+    border: 1px solid #555658
+    height: 25px
+    margin-left: 2%
+
+.btnSearch
+    background-color: black
+    color: $primary-color-modal
+    border-radius: 20px
+    width: 100px
+    outline: 0
+    border: 1px solid #555658
+
+.btnSearch:disabled
+    background-color: $background-color-modal
+    outline: 0
+    border: 1px solid #555658
+
+.btnSearch:enabled
+    cursor: pointer
+    outline: 0
+
+.btnSearch:enabled:hover
+    background-color: $primary-color-modal-title
+    outline: 0
+
+.btnReset
+    background-color: black
+    cursor: pointer
+    border-radius: 20px
+    width: 100px
+    color: $primary-color-modal
+    outline: 0
+    border: 1px solid #555658
+    margin-left: 2%
+
+.btnReset:hover
+    background-color: $primary-color-modal-title
+    outline: 0
+
+.enphasis
+    font-weight: 800
+    font-family: 'Times New Roman', Times, serif
+    color: $primary-color-modal-title
+
+.enphasis2
+    color: $primary-color-modal
+
+.buttonsAllign
+  text-align: center
+
+.backgroundSearch
+  background-color: $background-color-search
+
+.centeredLogin
+  text-align: center
+  margin: auto
+  width: 50%
+
+.flexEnd
+  text-align: end
+
+.marginTop
+  margin-top: 15%

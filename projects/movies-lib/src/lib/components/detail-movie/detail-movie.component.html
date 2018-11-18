@@ -1,0 +1,27 @@
+<div class="ui-g">
+  <div class="ui-g-3">
+    <img src="{{movie.Poster}}" alt="Poster">
+  </div>
+
+  <div class="ui-g-9 ui-g-nopad">
+    <div class="ui-g">
+      <div class="ui-g-6"><span class="enphasis">Actors:</span> {{movie.Actors}}</div>
+      <div class="ui-g-3"><span class="enphasis">Runtime:</span> {{movie.Runtime}} </div>
+      <div class="ui-g-3"><span class="enphasis">Rating IMDB:</span> {{movie.imdbRating}} </div>
+      <div class="ui-g-3"><span class="enphasis">Director:</span> {{movie.Director}} </div>
+      <div class="ui-g-3"><span class="enphasis">Production: </span>{{movie.Production}} </div>
+      <div class="ui-g-6"><span class="enphasis">Awards:</span> {{movie.Awards}}</div>
+      <div class="ui-g-12"><p><span class="enphasis">Plot: </span></p>{{movie.Plot}}</div>
+      <div class="ui-g-12"><span class="enphasis">Writer: </span>{{movie.Writer}}</div>
+      <div class="ui-g-12"><span class="enphasis">Website</span>: <a href="{{movie.Website}}" target="_blank"> {{movie.Website}}</a></div>
+      <div class="ui-g-12"><span class="enphasis">Ratings:</span>
+          <ng-template ngFor let-item [ngForOf]="movie.Ratings" let-i="index">
+              <li>{{item.Source}}-{{item.Value}}</li>
+            </ng-template>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
