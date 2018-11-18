@@ -2,7 +2,7 @@
 Angular 7 Movies List
 
 #Building
-Excute npm install, and build the applicattion libraries.
+Excute npm install, and build the application libraries.
 ng build enpoint-lib
 ng build login-lib
 ng build movies-lib
